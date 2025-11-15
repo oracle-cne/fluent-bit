@@ -38,7 +38,6 @@ BuildRequires:  zlib-devel
 BuildRequires:  postgresql
 BuildRequires:  postgresql-server
 BuildRequires:  cpio
-BuildRequires:  systemd-libs
 
 %description
 Telemetry agent for logs, metrics, and traces.
