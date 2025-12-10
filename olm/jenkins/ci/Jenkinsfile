@@ -1,0 +1,13 @@
+@Library('olcne-pipeline') _
+import com.oracle.olcne.pipeline.BranchPattern
+
+String version = '4.1.2'
+String imgTag  = "v" + version
+
+olcnePipeline(
+        branchPattern: new BranchPattern(master: "oracle/release/" + version, feature: '(?!^release/.*$)(^.*$)'),
+        containers: [('container-registry.oracle.com/olcne/fluent-bit-base:' + imgTag): 'olcne/fluent-bit-base:' + imgTag],
+        architectures: ['x86_64', 'aarch64'],
+        platforms: ['ol8'],
+        yumOL8Repos: ['ol8_codeready_builder']
+)
