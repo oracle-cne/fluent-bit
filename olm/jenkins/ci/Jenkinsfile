@@ -5,14 +5,11 @@ import com.oracle.olcne.pipeline.BranchPattern
 String version = '4.2.1'
 String imgTag  = "v" + version
 
-// Technique to have noSlim interpreted as an empty list instead of null
-def emptyList = []
-
 olcnePipeline(
         branchPattern: new BranchPattern(master: "oracle/release/" + version, feature: '(?!^release/.*$)(^.*$)'),
         containers: [('container-registry.oracle.com/olcne/fluent-bit-base:' + imgTag): 'olcne/fluent-bit-base:' + imgTag],
         architectures: ['x86_64', 'aarch64'],
         platforms: ['ol8'],
-        noSlim: emptyList,
+        noSlim: ["fluent-bit-base": []],
         yumOL8Repos: ['ol8_codeready_builder']
 )
