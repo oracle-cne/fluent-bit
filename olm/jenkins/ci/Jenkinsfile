@@ -1,5 +1,4 @@
-@Library('pipeline-shared@feature/mgianata-add-slimming-rules')
-@Library('olcne-pipeline@feature/mgianata-add-slimming-rules') _
+@Library('olcne-pipeline') _
 import com.oracle.olcne.pipeline.BranchPattern
 
 String version = '4.2.1'
